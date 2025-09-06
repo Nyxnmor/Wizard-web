@@ -290,8 +290,47 @@
             // If we have OAuth parameters, handle the callback
             if (code || error) {
                 handleDiscordCallback(code, state, error);
+            } else {
+                // Check if user is already logged in
+                checkExistingAuth();
+            }
+            
+            // Add logout button event listener
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
             }
         });
+
+        function checkExistingAuth() {
+            const userData = localStorage.getItem('discord_user_data');
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    updateUserProfile(user);
+                    console.log('Restored user profile from localStorage');
+                } catch (error) {
+                    console.error('Error parsing user data:', error);
+                    localStorage.removeItem('discord_user_data');
+                }
+            }
+        }
+
+        function logout() {
+            // Clear user data
+            localStorage.removeItem('discord_user_data');
+            
+            // Hide user profile, show login button
+            const loginBtn = document.getElementById('loginBtn');
+            const userProfile = document.getElementById('userProfile');
+            
+            if (loginBtn && userProfile) {
+                loginBtn.style.display = 'flex';
+                userProfile.style.display = 'none';
+            }
+            
+            console.log('User logged out');
+        }
 
         async function handleDiscordCallback(code, state, error) {
             if (error) {
@@ -324,6 +363,8 @@
                     avatar: null,
                     email: 'test@example.com'
                 };
+                
+                console.log('Mock user data:', mockUser);
 
                 // Store user data
                 localStorage.setItem('discord_user_data', JSON.stringify(mockUser));
@@ -377,11 +418,10 @@
         }
 
         function showAuthSuccess(user) {
+            console.log('Showing auth success for user:', user);
+            
             // Update the user profile in the navigation
-            if (window.showUserProfile && user) {
-                window.currentUser = user;
-                window.showUserProfile();
-            }
+            updateUserProfile(user);
             
             // Show success message
             const successMessage = document.createElement('div');
@@ -407,6 +447,38 @@
             setTimeout(() => {
                 successMessage.remove();
             }, 3000);
+        }
+
+        function updateUserProfile(user) {
+            console.log('Updating user profile:', user);
+            
+            const loginBtn = document.getElementById('loginBtn');
+            const userProfile = document.getElementById('userProfile');
+            const userAvatar = document.getElementById('userAvatar');
+            const userDisplayName = document.getElementById('userDisplayName');
+            
+            if (!loginBtn || !userProfile || !userAvatar || !userDisplayName) {
+                console.error('User profile elements not found');
+                return;
+            }
+            
+            if (user) {
+                // Set user avatar
+                if (user.avatar) {
+                    userAvatar.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`;
+                } else {
+                    userAvatar.src = `https://cdn.discordapp.com/embed/avatars/${user.discriminator % 5}.png`;
+                }
+                
+                // Set username (use global_name if available, otherwise username)
+                userDisplayName.textContent = user.global_name || user.username;
+                
+                // Show profile, hide login button
+                loginBtn.style.display = 'none';
+                userProfile.style.display = 'flex';
+                
+                console.log('User profile updated successfully');
+            }
         }
 
         function showAuthError(error) {
