@@ -349,35 +349,12 @@
                 // Show loading state
                 showAuthLoading();
 
-                // For now, simulate successful authentication since backend isn't set up
-                // In production, you would send this to your backend
+                // Exchange code for user data using Discord API directly
                 console.log('OAuth Code:', code);
                 console.log('OAuth State:', state);
                 
-                // Simulate user data (replace with actual backend call)
-                const mockUser = {
-                    id: '123456789',
-                    username: 'TestUser',
-                    global_name: 'Test User',
-                    discriminator: '0001',
-                    avatar: null,
-                    email: 'test@example.com'
-                };
-                
-                console.log('Mock user data:', mockUser);
-
-                // Store user data
-                localStorage.setItem('discord_user_data', JSON.stringify(mockUser));
-                
-                // Show success and update UI
-                showAuthSuccess(mockUser);
-                
-                // Clean up URL parameters
-                window.history.replaceState({}, document.title, window.location.pathname);
-
-                // TODO: Replace this with actual backend call:
-                /*
-                const response = await fetch('https://your-backend.com/api/discord/auth', {
+                // Send to secure backend proxy for token exchange
+                const response = await fetch('https://your-backend-domain.com/api/discord/exchange', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -389,13 +366,17 @@
                     })
                 });
 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const result = await response.json();
 
                 if (result.success) {
+                    console.log('User info received:', result.user);
+                    
                     // Store user data
-                    if (result.user) {
-                        localStorage.setItem('discord_user_data', JSON.stringify(result.user));
-                    }
+                    localStorage.setItem('discord_user_data', JSON.stringify(result.user));
                     
                     // Show success and update UI
                     showAuthSuccess(result.user);
@@ -403,9 +384,8 @@
                     // Clean up URL parameters
                     window.history.replaceState({}, document.title, window.location.pathname);
                 } else {
-                    showAuthError(result.error || 'Authentication failed');
+                    throw new Error(result.error || 'Authentication failed');
                 }
-                */
             } catch (error) {
                 console.error('Authentication error:', error);
                 showAuthError('Failed to complete authentication');
