@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Bot Commands</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .commands-web {
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .commands-header {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .commands-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .commands-subtitle {
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .commands-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .command-category {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background: #000000;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: #60a5fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .category-description {
+            color: #a1a1aa;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+        
+        .commands-list {
+            padding: 30px;
+        }
+        
+        .command-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .command-item:hover {
+            background: rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .command-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        
+        .command-description {
+            color: #a1a1aa;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .command-usage {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .command-permissions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .permission-badge {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .stats-bar {
+            background: rgba(26, 26, 26, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .stats-text {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+        
+        .stats-text strong {
+            color: #ffffff;
+        }
+        
+        @media (max-width: 768px) {
+            .commands-title {
+                font-size: 2.5rem;
+            }
+            
+            .commands-container {
+                padding: 20px 10px;
+            }
+            
+            .category-header {
+                padding: 15px 20px;
+            }
+            
+            .commands-list {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="commands-web">
+    <!-- Header -->
+    <header class="commands-header">
+        <div class="container">
+            <h1 class="commands-title">Wizard Bot Commands</h1>
+            <p class="commands-subtitle">Complete list of all available commands organized by category</p>
+        </div>
+    </header>
+
+    <!-- Commands Container -->
+    <div class="commands-container">
+        <!-- Jail Commands -->
+        <div class="command-category" id="jail">
+            <div class="category-header">
+                <div class="category-title">
+                    <div class="category-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    Jail System
+                </div>
+                <div class="category-description">Manage user jailing system with role removal and channel restrictions</div>
+            </div>
+            <div class="commands-list">
+                <div class="command-item">
+                    <div class="command-name">jail @user [reason]</div>
+                    <div class="command-description">Jail a user by removing their roles and adding them to a jail role</div>
+                    <div class="command-usage">!jail @user No reason provided</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">unjail @user</div>
+                    <div class="command-description">Unjail a user by restoring their original roles</div>
+                    <div class="command-usage">!unjail @user</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">jailed</div>
+                    <div class="command-description">List all currently jailed users</div>
+                    <div class="command-usage">!jailed</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">jail status</div>
+                    <div class="command-description">Show whether jail system is enabled and its settings</div>
+                    <div class="command-usage">!jail status</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">set jail</div>
+                    <div class="command-description">Set up the jail system for this server</div>
+                    <div class="command-usage">!set jail</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">unset jail</div>
+                    <div class="command-description">Unset the jail system for this server</div>
+                    <div class="command-usage">!unset jail</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Role Commands -->
+        <div class="command-category" id="joinrole">
+            <div class="category-header">
+                <div class="category-title">
+                    <div class="category-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    Join Role System
+                </div>
+                <div class="category-description">Automatically assign roles to new members when they join</div>
+            </div>
+            <div class="commands-list">
+                <div class="command-item">
+                    <div class="command-name">join human add @role</div>
+                    <div class="command-description">Add roles to be automatically assigned to human members</div>
+                    <div class="command-usage">!join human add @role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join human remove @role</div>
+                    <div class="command-description">Remove roles from human auto-assignment</div>
+                    <div class="command-usage">!join human remove @role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join human disable</div>
+                    <div class="command-description">Disable human join role assignment</div>
+                    <div class="command-usage">!join human disable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join bot add @role</div>
+                    <div class="command-description">Add roles to be automatically assigned to bot members</div>
+                    <div class="command-usage">!join bot add @role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join bot remove @role</div>
+                    <div class="command-description">Remove roles from bot auto-assignment</div>
+                    <div class="command-usage">!join bot remove @role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join bot disable</div>
+                    <div class="command-description">Disable bot join role assignment</div>
+                    <div class="command-usage">!join bot disable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">join status</div>
+                    <div class="command-description">Show current join role configuration</div>
+                    <div class="command-usage">!join status</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AntiNuke Commands -->
+        <div class="command-category" id="antinuke">
+            <div class="category-header">
+                <div class="category-title">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    AntiNuke System
+                </div>
+                <div class="category-description">Protect your server from raids and malicious actions</div>
+            </div>
+            <div class="commands-list">
+                <div class="command-item">
+                    <div class="command-name">antinuke enable</div>
+                    <div class="command-description">Enable the AntiNuke system for this server</div>
+                    <div class="command-usage">!antinuke enable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">antinuke disable</div>
+                    <div class="command-description">Disable the AntiNuke system</div>
+                    <div class="command-usage">!antinuke disable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">antinuke status</div>
+                    <div class="command-description">Show AntiNuke system status and configuration</div>
+                    <div class="command-usage">!antinuke status</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">antinuke config [category] enable [threshold] [action] [duration]</div>
+                    <div class="command-description">Configure AntiNuke categories (mass mention, mass kick, mass ban, link, etc.)</div>
+                    <div class="command-usage">!antinuke config mass mention enable 3 kick</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">antinuke whitelist add @user</div>
+                    <div class="command-description">Add user to AntiNuke whitelist</div>
+                    <div class="command-usage">!antinuke whitelist add @user</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">antinuke whitelist remove @user</div>
+                    <div class="command-description">Remove user from AntiNuke whitelist</div>
+                    <div class="command-usage">!antinuke whitelist remove @user</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AutoMod Commands -->
+        <div class="command-category" id="automod">
+            <div class="category-header">
+                <div class="category-title">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    AutoMod System
+                </div>
+                <div class="category-description">Automated moderation with word filtering, spam protection, and more</div>
+            </div>
+            <div class="commands-list">
+                <div class="command-item">
+                    <div class="command-name">automod words enable</div>
+                    <div class="command-description">Enable word filtering system</div>
+                    <div class="command-usage">!automod words enable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod words disable</div>
+                    <div class="command-description">Disable word filtering system</div>
+                    <div class="command-usage">!automod words disable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod words add [word]</div>
+                    <div class="command-description">Add word to blacklist</div>
+                    <div class="command-usage">!automod words add badword</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod words remove [word]</div>
+                    <div class="command-description">Remove word from blacklist</div>
+                    <div class="command-usage">!automod words remove badword</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod words list</div>
+                    <div class="command-description">List all blacklisted words</div>
+                    <div class="command-usage">!automod words list</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod spam enable</div>
+                    <div class="command-description">Enable spam protection</div>
+                    <div class="command-usage">!automod spam enable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">automod spam disable</div>
+                    <div class="command-description">Disable spam protection</div>
+                    <div class="command-usage">!automod spam disable</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Guild Owner</span>
+                        <span class="permission-badge">Second Owner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                                   <!-- Giveaway Commands -->
+          <div class="command-category" id="giveaway">
+             <div class="category-header">
+                 <div class="category-title">
+                     <div class="category-icon">
+                         <i class="fas fa-gift"></i>
+                     </div>
+                     Giveaway System
+                 </div>
+                 <div class="category-description">Create and manage giveaways with interactive buttons</div>
+             </div>
+             <div class="commands-list">
+                 <div class="command-item">
+                     <div class="command-name">/giveaway</div>
+                     <div class="command-description">Create a new giveaway with slash command interface</div>
+                     <div class="command-usage">/giveaway title:"Prize" description:"Description" duration:"1h" winner_count:"1"</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Messages</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">giveaway end</div>
+                     <div class="command-description">End current giveaway</div>
+                     <div class="command-usage">!giveaway end</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Messages</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">giveaway reroll</div>
+                     <div class="command-description">Reroll giveaway winner</div>
+                     <div class="command-usage">!giveaway reroll</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Messages</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">giveaway list</div>
+                     <div class="command-description">List active giveaways</div>
+                     <div class="command-usage">!giveaway list</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Any</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+                                   <!-- Ticket Commands -->
+          <div class="command-category" id="ticket">
+             <div class="category-header">
+                 <div class="category-title">
+                     <div class="category-icon">
+                         <i class="fas fa-ticket-alt"></i>
+                     </div>
+                     Ticket System
+                 </div>
+                 <div class="category-description">Support ticket system with interactive panels and management</div>
+             </div>
+             <div class="commands-list">
+                 <div class="command-item">
+                     <div class="command-name">ticket setup</div>
+                     <div class="command-description">Set up the ticket system for this server</div>
+                     <div class="command-usage">!ticket setup</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Administrator</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">ticket panel</div>
+                     <div class="command-description">Create a ticket panel with buttons</div>
+                     <div class="command-usage">!ticket panel</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">ticket close</div>
+                     <div class="command-description">Close current ticket</div>
+                     <div class="command-usage">!ticket close</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">ticket add @user</div>
+                     <div class="command-description">Add user to ticket</div>
+                     <div class="command-usage">!ticket add @user</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">ticket remove @user</div>
+                     <div class="command-description">Remove user from ticket</div>
+                     <div class="command-usage">!ticket remove @user</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+                                   <!-- Voice Master Commands -->
+          <div class="command-category" id="voicemaster">
+             <div class="category-header">
+                 <div class="category-title">
+                     <div class="category-icon">
+                         <i class="fas fa-microphone"></i>
+                     </div>
+                     Voice Master
+                 </div>
+                 <div class="category-description">Advanced voice channel management with temporary channels</div>
+             </div>
+             <div class="commands-list">
+                 <div class="command-item">
+                     <div class="command-name">voicemaster setup</div>
+                     <div class="command-description">Set up Voice Master system</div>
+                     <div class="command-usage">!voicemaster setup</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">voicemaster panel</div>
+                     <div class="command-description">Create Voice Master panel</div>
+                     <div class="command-usage">!voicemaster panel</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Channels</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">voice limit [number]</div>
+                     <div class="command-description">Set voice channel limit</div>
+                     <div class="command-usage">!voice limit 10</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Voice Channel Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">voice lock</div>
+                     <div class="command-description">Lock voice channel</div>
+                     <div class="command-usage">!voice lock</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Voice Channel Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">voice unlock</div>
+                     <div class="command-description">Unlock voice channel</div>
+                     <div class="command-usage">!voice unlock</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Voice Channel Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">voice rename [name]</div>
+                     <div class="command-description">Rename voice channel</div>
+                     <div class="command-usage">!voice rename New Name</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Voice Channel Owner</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+                                   <!-- Vanity Commands -->
+          <div class="command-category" id="vanity">
+             <div class="category-header">
+                 <div class="category-title">
+                     <div class="category-icon">
+                         <i class="fas fa-crown"></i>
+                     </div>
+                     Vanity & Booster System
+                 </div>
+                 <div class="category-description">Custom vanity URLs and booster role management</div>
+             </div>
+             <div class="commands-list">
+                 <div class="command-item">
+                     <div class="command-name">vanity enable</div>
+                     <div class="command-description">Enable vanity system</div>
+                     <div class="command-usage">!vanity enable</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Guild Owner</span>
+                         <span class="permission-badge">Second Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">vanity disable</div>
+                     <div class="command-description">Disable vanity system</div>
+                     <div class="command-usage">!vanity disable</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Guild Owner</span>
+                         <span class="permission-badge">Second Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">vanity set @role</div>
+                     <div class="command-description">Set vanity role</div>
+                     <div class="command-usage">!vanity set @role</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Guild Owner</span>
+                         <span class="permission-badge">Second Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">boosterrole set @role</div>
+                     <div class="command-description">Set booster role</div>
+                     <div class="command-usage">!boosterrole set @role</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Guild Owner</span>
+                         <span class="permission-badge">Second Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">boosterrole remove</div>
+                     <div class="command-description">Remove booster role</div>
+                     <div class="command-usage">!boosterrole remove</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Guild Owner</span>
+                         <span class="permission-badge">Second Owner</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">boosterrole list</div>
+                     <div class="command-description">List booster roles</div>
+                     <div class="command-usage">!boosterrole list</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Any</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+                                   <!-- Moderation Commands -->
+          <div class="command-category" id="moderation">
+             <div class="category-header">
+                 <div class="category-title">
+                     <div class="category-icon">
+                         <i class="fas fa-gavel"></i>
+                     </div>
+                     Moderation
+                 </div>
+                 <div class="category-description">Basic moderation commands for server management</div>
+             </div>
+             <div class="commands-list">
+                 <div class="command-item">
+                     <div class="command-name">purge [number]</div>
+                     <div class="command-description">Delete last N messages</div>
+                     <div class="command-usage">!purge 10</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Messages</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">nickname @user [name]</div>
+                     <div class="command-description">Change user nickname</div>
+                     <div class="command-usage">!nickname @user NewName</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Nicknames</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">warn @user [reason]</div>
+                     <div class="command-description">Warn a user</div>
+                     <div class="command-usage">!warn @user Breaking rules</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Manage Messages</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">kick @user [reason]</div>
+                     <div class="command-description">Kick a user from server</div>
+                     <div class="command-usage">!kick @user Breaking rules</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Kick Members</span>
+                     </div>
+                 </div>
+                 
+                 <div class="command-item">
+                     <div class="command-name">ban @user [reason]</div>
+                     <div class="command-description">Ban a user from server</div>
+                     <div class="command-usage">!ban @user Breaking rules</div>
+                     <div class="command-permissions">
+                         <span class="permission-badge">Ban Members</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+                                       <!-- Role Management Commands -->
+          <div class="command-category" id="rolemanagement">
+              <div class="category-header">
+                  <div class="category-title">
+                      <div class="category-icon">
+                          <i class="fas fa-users"></i>
+                      </div>
+                      Role Management
+                  </div>
+                  <div class="category-description">Bulk role management for all members, humans, or bots</div>
+              </div>
+              <div class="commands-list">
+                  <div class="command-item">
+                      <div class="command-name">role all @role</div>
+                      <div class="command-description">Give a role to all members in the server</div>
+                      <div class="command-usage">!role all @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">role human @role</div>
+                      <div class="command-description">Give a role to all human members</div>
+                      <div class="command-usage">!role human @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">role bot @role</div>
+                      <div class="command-description">Give a role to all bot members</div>
+                      <div class="command-usage">!role bot @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">role remove all @role</div>
+                      <div class="command-description">Remove a role from all members</div>
+                      <div class="command-usage">!role remove all @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">role remove human @role</div>
+                      <div class="command-description">Remove a role from all human members</div>
+                      <div class="command-usage">!role remove human @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">role remove bot @role</div>
+                      <div class="command-description">Remove a role from all bot members</div>
+                      <div class="command-usage">!role remove bot @role</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Administrator</span>
+                          <span class="permission-badge">Guild Owner</span>
+                          <span class="permission-badge">Second Owner</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+                              <!-- Welcome System Commands -->
+                    <div class="command-category" id="welcome">
+                        <div class="category-header">
+                            <div class="category-title">
+                                <div class="category-icon">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                                Welcome System
+                            </div>
+                            <div class="category-description">Customize welcome messages and DMs for new members</div>
+                        </div>
+                        <div class="commands-list">
+                            <div class="command-item">
+                                <div class="command-name">welcome set #channel</div>
+                                <div class="command-description">Set up the welcome system for this server</div>
+                                <div class="command-usage">!welcome set #welcome</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome remove</div>
+                                <div class="command-description">Disable the welcome system</div>
+                                <div class="command-usage">!welcome remove</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome mode [embed/message/both]</div>
+                                <div class="command-description">Set welcome mode (embed, message, or both)</div>
+                                <div class="command-usage">!welcome mode embed</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome message [message]</div>
+                                <div class="command-description">Set custom welcome message</div>
+                                <div class="command-usage">!welcome message Welcome {user} to {server}!</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome title [title]</div>
+                                <div class="command-description">Set welcome embed title</div>
+                                <div class="command-usage">!welcome title Welcome!</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome description [description]</div>
+                                <div class="command-description">Set welcome embed description</div>
+                                <div class="command-usage">!welcome description Glad to have you here!</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome footer [on/off]</div>
+                                <div class="command-description">Toggle welcome footer avatar</div>
+                                <div class="command-usage">!welcome footer on</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome banner [url/off]</div>
+                                <div class="command-description">Set welcome banner image</div>
+                                <div class="command-usage">!welcome banner https://example.com/image.png</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome color [hex]</div>
+                                <div class="command-description">Set welcome embed color</div>
+                                <div class="command-usage">!welcome color #5865F2</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome button [text] [url]</div>
+                                <div class="command-description">Set welcome button</div>
+                                <div class="command-usage">!welcome button Join https://discord.gg/invite</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome button1-5 [text] [url]</div>
+                                <div class="command-description">Set welcome buttons 1-5</div>
+                                <div class="command-usage">!welcome button1 Rules https://discord.gg/rules</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome preview</div>
+                                <div class="command-description">Preview welcome message</div>
+                                <div class="command-usage">!welcome preview</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome mod @role</div>
+                                <div class="command-description">Set welcome moderator role</div>
+                                <div class="command-usage">!welcome mod @Moderator</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">setwelcome #channel [message]</div>
+                                <div class="command-description">Quick welcome setup (message mode)</div>
+                                <div class="command-usage">!setwelcome #welcome Welcome to the server!</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">welcome status</div>
+                                <div class="command-description">Show current welcome system configuration</div>
+                                <div class="command-usage">!welcome status</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+          <!-- Embed System Commands -->
+          <div class="command-category" id="embeds">
+              <div class="category-header">
+                  <div class="category-title">
+                      <div class="category-icon">
+                          <i class="fas fa-palette"></i>
+                      </div>
+                      Embed System
+                  </div>
+                  <div class="category-description">Create and customize beautiful embeds for announcements and messages</div>
+              </div>
+              <div class="commands-list">
+                  <div class="command-item">
+                      <div class="command-name">embed create</div>
+                      <div class="command-description">Create a custom embed with interactive builder</div>
+                      <div class="command-usage">!embed create</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">embed edit [message_id]</div>
+                      <div class="command-description">Edit an existing embed</div>
+                      <div class="command-usage">!embed edit 123456789</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">embed delete [message_id]</div>
+                      <div class="command-description">Delete an embed message</div>
+                      <div class="command-usage">!embed delete 123456789</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">embed color [hex_color]</div>
+                      <div class="command-description">Set embed color</div>
+                      <div class="command-usage">!embed color #ff0000</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">embed title [title]</div>
+                      <div class="command-description">Set embed title</div>
+                      <div class="command-usage">!embed title Announcement</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+                  
+                  <div class="command-item">
+                      <div class="command-name">embed description [description]</div>
+                      <div class="command-description">Set embed description</div>
+                      <div class="command-usage">!embed description This is an important announcement!</div>
+                      <div class="command-permissions">
+                          <span class="permission-badge">Manage Messages</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+                              <!-- Fun & NSFW Commands -->
+                    <div class="command-category" id="fun">
+                        <div class="category-header">
+                            <div class="category-title">
+                                <div class="category-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                Fun & NSFW Commands
+                            </div>
+                            <div class="category-description">Fun commands and NSFW content (requires age-restricted channels)</div>
+                        </div>
+                        <div class="commands-list">
+                            <div class="command-item">
+                                <div class="command-name">bully @user</div>
+                                <div class="command-description">Send a random bully GIF targeting the mentioned user</div>
+                                <div class="command-usage">!bully @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">slap @user</div>
+                                <div class="command-description">Slap a user with a GIF</div>
+                                <div class="command-usage">!slap @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">punch @user</div>
+                                <div class="command-description">Punch a user with a GIF</div>
+                                <div class="command-usage">!punch @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">gore @attacker @victim</div>
+                                <div class="command-description">Gore action (NSFW required)</div>
+                                <div class="command-usage">!gore @user @victim</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Channel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">nsfw enable</div>
+                                <div class="command-description">Enable NSFW system for this server</div>
+                                <div class="command-usage">!nsfw enable</div>
+                                <div class="permission-badge">Age-Restricted Channel</div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">nsfw send</div>
+                                <div class="command-description">Send random straight NSFW content</div>
+                                <div class="command-usage">!nsfw send</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">nsfw add [category] [url]</div>
+                                <div class="command-description">Add NSFW media URL to category</div>
+                                <div class="command-usage">!nsfw add straight https://example.com/video.mp4</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">nsfw bulk [category] [urls]</div>
+                                <div class="command-description">Add multiple NSFW URLs at once</div>
+                                <div class="command-usage">!nsfw bulk straight url1 url2 url3</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Administrator</span>
+                                    <span class="permission-badge">Guild Owner</span>
+                                    <span class="permission-badge">Second Owner</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">nsfw list [category]</div>
+                                <div class="command-description">List NSFW media in category</div>
+                                <div class="command-usage">!nsfw list straight</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">gayporn</div>
+                                <div class="command-description">Send random gay NSFW content</div>
+                                <div class="command-usage">!gayporn</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">lesbianporn</div>
+                                <div class="command-description">Send random lesbian NSFW content</div>
+                                <div class="command-usage">!lesbianporn</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">transporn</div>
+                                <div class="command-description">Send random trans NSFW content</div>
+                                <div class="command-usage">!transporn</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">hentai</div>
+                                <div class="command-description">Send random hentai content</div>
+                                <div class="command-usage">!hentai</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">gay @user</div>
+                                <div class="command-description">Rate user's gay percentage</div>
+                                <div class="command-usage">!gay @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">trans @user</div>
+                                <div class="command-description">Rate user's trans percentage</div>
+                                <div class="command-usage">!trans @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">fuck @user</div>
+                                <div class="command-description">NSFW action command</div>
+                                <div class="command-usage">!fuck @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">NSFW Enabled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Utility Commands -->
+                    <div class="command-category" id="utility">
+                        <div class="category-header">
+                            <div class="category-title">
+                                <div class="category-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                Utility Commands
+                            </div>
+                            <div class="category-description">Helpful utility commands for server management and information</div>
+                        </div>
+                        <div class="commands-list">
+                            <div class="command-item">
+                                <div class="command-name">serverinfo</div>
+                                <div class="command-description">Display detailed server information</div>
+                                <div class="command-usage">!serverinfo</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">userinfo @user</div>
+                                <div class="command-description">Display detailed user information</div>
+                                <div class="command-usage">!userinfo @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">botinfo</div>
+                                <div class="command-description">Show detailed bot information and stats</div>
+                                <div class="command-usage">!botinfo</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">ping</div>
+                                <div class="command-description">Check bot latency</div>
+                                <div class="command-usage">!ping</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">uptime</div>
+                                <div class="command-description">Show bot uptime</div>
+                                <div class="command-usage">!uptime</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">avatar @user</div>
+                                <div class="command-description">Show user's avatar</div>
+                                <div class="command-usage">!avatar @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                            
+                            <div class="command-item">
+                                <div class="command-name">banner @user</div>
+                                <div class="command-description">Show user's banner</div>
+                                <div class="command-usage">!banner @user</div>
+                                <div class="command-permissions">
+                                    <span class="permission-badge">Any</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+
+         <!-- Stats Bar -->
+     <div class="stats-bar">
+         <div class="container">
+             <p class="stats-text">
+                 <strong>Wizard Bot</strong> - Complete command documentation with <strong>70+ commands</strong> across <strong>9 categories</strong>
+             </p>
+         </div>
+     </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

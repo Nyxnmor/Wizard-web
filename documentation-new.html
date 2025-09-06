@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - All Commands</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Logo" class="nav-logo">
+                <span class="nav-title">Doc</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#commands">Commands</a>
+                <a href="spotify.html">Spotify</a>
+                <a href="#status">Status</a>
+            </div>
+            <div class="nav-auth">
+                <button class="login-btn" onclick="redirectToBotAuth()">
+                    <i class="fab fa-discord"></i>
+                    Login with Discord
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="doc-header">
+        <div class="doc-container">
+            <h1>📚 Commands Documentation</h1>
+            <p>Explore all available commands and their usage</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search commands..." onkeyup="searchCommands()">
+                </div>
+                <button class="search-btn" onclick="searchCommands()">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Grid -->
+    <section class="commands-section">
+        <div class="commands-container">
+            <div id="commandsGrid" class="commands-grid">
+                <!-- AI Commands -->
+                <div class="command-card" data-category="ai" data-search="ai enable llama breathe">
+                    <div class="command-header">
+                        <h3>ai</h3>
+                        <span class="category-badge ai">AI</span>
+                    </div>
+                    <p class="command-description">AI features coming soon with Llama integration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ai [question]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Premium</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ai" data-search="ai enable">
+                    <div class="command-header">
+                        <h3>ai enable</h3>
+                        <span class="category-badge ai">AI</span>
+                    </div>
+                    <p class="command-description">Enable AI features for this server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ai enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                        <span class="permission-badge">Premium</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ai" data-search="ai llama">
+                    <div class="command-header">
+                        <h3>ai llama</h3>
+                        <span class="category-badge ai">AI</span>
+                    </div>
+                    <p class="command-description">Ask Llama AI (coming soon)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ai llama [question]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Premium</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ai" data-search="ai breathe">
+                    <div class="command-header">
+                        <h3>ai breathe</h3>
+                        <span class="category-badge ai">AI</span>
+                    </div>
+                    <p class="command-description">30-second breathing reset guide</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ai breathe</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- AntiNuke Commands -->
+                <div class="command-card" data-category="antinuke" data-search="antinuke enable">
+                    <div class="command-header">
+                        <h3>antinuke enable</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Enable AntiNuke protection system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke disable">
+                    <div class="command-header">
+                        <h3>antinuke disable</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Disable AntiNuke protection system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke disable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke status">
+                    <div class="command-header">
+                        <h3>antinuke status</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">View AntiNuke system status and configuration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke status</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config mass mention">
+                    <div class="command-header">
+                        <h3>antinuke config mass mention</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure mass mention protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config mass mention enable 3 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config mass ban">
+                    <div class="command-header">
+                        <h3>antinuke config mass ban</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure mass ban protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config mass ban enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config mass kick">
+                    <div class="command-header">
+                        <h3>antinuke config mass kick</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure mass kick protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config mass kick enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config channel create">
+                    <div class="command-header">
+                        <h3>antinuke config channel create</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure channel creation protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config channel create enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config channel delete">
+                    <div class="command-header">
+                        <h3>antinuke config channel delete</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure channel deletion protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config channel delete enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config role create">
+                    <div class="command-header">
+                        <h3>antinuke config role create</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure role creation protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config role create enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config role delete">
+                    <div class="command-header">
+                        <h3>antinuke config role delete</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure role deletion protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config role delete enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config webhook create">
+                    <div class="command-header">
+                        <h3>antinuke config webhook create</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure webhook creation protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config webhook create enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config webhook delete">
+                    <div class="command-header">
+                        <h3>antinuke config webhook delete</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure webhook deletion protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config webhook delete enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke config bot add">
+                    <div class="command-header">
+                        <h3>antinuke config bot add</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Configure bot addition protection</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke config bot add enable 1 kick</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke whitelist add">
+                    <div class="command-header">
+                        <h3>antinuke whitelist add</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Add a user to AntiNuke whitelist</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke whitelist add @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="antinuke" data-search="antinuke whitelist remove">
+                    <div class="command-header">
+                        <h3>antinuke whitelist remove</h3>
+                        <span class="category-badge antinuke">AntiNuke</span>
+                    </div>
+                    <p class="command-description">Remove a user from AntiNuke whitelist</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!antinuke whitelist remove @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <!-- AutoMod Commands -->
+                <div class="command-card" data-category="automod" data-search="automod words enable">
+                    <div class="command-header">
+                        <h3>automod words enable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Enable words filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod words enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod words disable">
+                    <div class="command-header">
+                        <h3>automod words disable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Disable words filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod words disable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod words add">
+                    <div class="command-header">
+                        <h3>automod words add</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Add a word to the blacklist</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod words add <word></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod words remove">
+                    <div class="command-header">
+                        <h3>automod words remove</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Remove a word from the blacklist</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod words remove <word></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod words list">
+                    <div class="command-header">
+                        <h3>automod words list</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">List all blacklisted words</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod words list</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod spam enable">
+                    <div class="command-header">
+                        <h3>automod spam enable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Enable spam filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod spam enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod spam disable">
+                    <div class="command-header">
+                        <h3>automod spam disable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Disable spam filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod spam disable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod spam rate">
+                    <div class="command-header">
+                        <h3>automod spam rate</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Set spam threshold</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod spam rate <threshold></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod spam timeout">
+                    <div class="command-header">
+                        <h3>automod spam timeout</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Set spam timeout duration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod spam timeout <duration></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod spam purge">
+                    <div class="command-header">
+                        <h3>automod spam purge</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Set max messages to delete</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod spam purge <count></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod repeat enable">
+                    <div class="command-header">
+                        <h3>automod repeat enable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Enable repeat filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod repeat enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod repeat disable">
+                    <div class="command-header">
+                        <h3>automod repeat disable</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Disable repeat filter</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod repeat disable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod repeat threshold">
+                    <div class="command-header">
+                        <h3>automod repeat threshold</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Set repeat threshold</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod repeat threshold <value></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod mod">
+                    <div class="command-header">
+                        <h3>automod mod</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Set AutoMod moderator role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod mod @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod bypass">
+                    <div class="command-header">
+                        <h3>automod bypass</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Toggle staff bypass</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod bypass on/off</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="automod" data-search="automod status">
+                    <div class="command-header">
+                        <h3>automod status</h3>
+                        <span class="category-badge automod">AutoMod</span>
+                    </div>
+                    <p class="command-description">Show AutoMod status</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!automod status</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Avatar Commands -->
+                <div class="command-card" data-category="info" data-search="avatar av">
+                    <div class="command-header">
+                        <h3>avatar</h3>
+                        <span class="category-badge info">Info</span>
+                    </div>
+                    <p class="command-description">Show avatar of a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!avatar [@user]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- Banner Commands -->
+                <div class="command-card" data-category="info" data-search="banner">
+                    <div class="command-header">
+                        <h3>banner</h3>
+                        <span class="category-badge info">Info</span>
+                    </div>
+                    <p class="command-description">Show banner of a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!banner [@user]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- BotInfo Commands -->
+                <div class="command-card" data-category="info" data-search="botinfo bi">
+                    <div class="command-header">
+                        <h3>botinfo</h3>
+                        <span class="category-badge info">Info</span>
+                    </div>
+                    <p class="command-description">Show bot information and stats</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!botinfo</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- Bully Commands -->
+                <div class="command-card" data-category="fun" data-search="bully bullt">
+                    <div class="command-header">
+                        <h3>bully</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Send a random bully GIF targeting a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!bully @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- ButtonRole Commands -->
+                <div class="command-card" data-category="utility" data-search="setbutton setbtn">
+                    <div class="command-header">
+                        <h3>setbutton</h3>
+                        <span class="category-badge utility">Utility</span>
+                    </div>
+                    <p class="command-description">Set up a button role reaction system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!setbutton <message_id> @role <emoji></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="utility" data-search="removebutton removebtn">
+                    <div class="command-header">
+                        <h3>removebutton</h3>
+                        <span class="category-badge utility">Utility</span>
+                    </div>
+                    <p class="command-description">Remove a button role setup</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!removebutton <message_id></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="utility" data-search="listbuttons listbtn">
+                    <div class="command-header">
+                        <h3>listbuttons</h3>
+                        <span class="category-badge utility">Utility</span>
+                    </div>
+                    <p class="command-description">List all button roles in the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!listbuttons</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Embed Commands -->
+                <div class="command-card" data-category="embed" data-search="embed create">
+                    <div class="command-header">
+                        <h3>embed</h3>
+                        <span class="category-badge embed">Embed</span>
+                    </div>
+                    <p class="command-description">Create a custom embed message</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>/embed create</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Messages</span>
+                    </div>
+                </div>
+
+                <!-- Emoji Commands -->
+                <div class="command-card" data-category="utility" data-search="emoji steal">
+                    <div class="command-header">
+                        <h3>emoji steal</h3>
+                        <span class="category-badge utility">Utility</span>
+                    </div>
+                    <p class="command-description">Steal an emoji from another server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!emoji steal <emoji></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Emojis</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="utility" data-search="emoji list">
+                    <div class="command-header">
+                        <h3>emoji list</h3>
+                        <span class="category-badge utility">Utility</span>
+                    </div>
+                    <p class="command-description">List all server emojis</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!emoji list</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Fun Commands -->
+                <div class="command-card" data-category="fun" data-search="fuck">
+                    <div class="command-header">
+                        <h3>fuck</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">NSFW content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!fuck @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="gay">
+                    <div class="command-header">
+                        <h3>gay</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Rate someone's gayness (NSFW)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!gay @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="gayporn gay_porn">
+                    <div class="command-header">
+                        <h3>gayporn</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">NSFW content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!gayporn</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="gore">
+                    <div class="command-header">
+                        <h3>gore</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Gore content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!gore [@attacker] [@victim]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="hentai">
+                    <div class="command-header">
+                        <h3>hentai</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Hentai content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!hentai</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="lesbianporn lesbian_porn">
+                    <div class="command-header">
+                        <h3>lesbianporn</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">NSFW content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!lesbianporn</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="punch">
+                    <div class="command-header">
+                        <h3>punch</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Punch someone with a GIF</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!punch @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="slap">
+                    <div class="command-header">
+                        <h3>slap</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Slap someone with a GIF</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!slap @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="trans">
+                    <div class="command-header">
+                        <h3>trans</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Rate someone's transness (NSFW)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!trans @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="transporn trans_porn">
+                    <div class="command-header">
+                        <h3>transporn</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">NSFW content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!transporn</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <!-- Giveaway Commands -->
+                <div class="command-card" data-category="giveaway" data-search="giveaway start">
+                    <div class="command-header">
+                        <h3>giveaway start</h3>
+                        <span class="category-badge giveaway">Giveaway</span>
+                    </div>
+                    <p class="command-description">Start a new giveaway</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>/giveaway start</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Messages</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="giveaway" data-search="giveaway end">
+                    <div class="command-header">
+                        <h3>giveaway end</h3>
+                        <span class="category-badge giveaway">Giveaway</span>
+                    </div>
+                    <p class="command-description">End a giveaway</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>/giveaway end <message_id></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Messages</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="giveaway" data-search="giveaway reroll">
+                    <div class="command-header">
+                        <h3>giveaway reroll</h3>
+                        <span class="category-badge giveaway">Giveaway</span>
+                    </div>
+                    <p class="command-description">Reroll a giveaway winner</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>/giveaway reroll <message_id></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Messages</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="giveaway" data-search="giveaway list">
+                    <div class="command-header">
+                        <h3>giveaway list</h3>
+                        <span class="category-badge giveaway">Giveaway</span>
+                    </div>
+                    <p class="command-description">List all active giveaways</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>/giveaway list</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Jail Commands -->
+                <div class="command-card" data-category="jail" data-search="jail">
+                    <div class="command-header">
+                        <h3>jail</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">Jail a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!jail @user [reason]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="jail" data-search="unjail">
+                    <div class="command-header">
+                        <h3>unjail</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">Unjail a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!unjail @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="jail" data-search="jail role">
+                    <div class="command-header">
+                        <h3>jail role</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">Set the jail role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!jail role @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="jail" data-search="jail channel">
+                    <div class="command-header">
+                        <h3>jail channel</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">Set the jail channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!jail channel #channel</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="jail" data-search="jail list">
+                    <div class="command-header">
+                        <h3>jail list</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">List all jailed users</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!jail list</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="jail" data-search="jail config">
+                    <div class="command-header">
+                        <h3>jail config</h3>
+                        <span class="category-badge jail">Jail</span>
+                    </div>
+                    <p class="command-description">Show jail configuration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!jail config</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Join Role Commands -->
+                <div class="command-card" data-category="joinrole" data-search="join human add">
+                    <div class="command-header">
+                        <h3>join human add</h3>
+                        <span class="category-badge joinrole">Join Role</span>
+                    </div>
+                    <p class="command-description">Add a role for human users</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!join human add @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="joinrole" data-search="join human remove">
+                    <div class="command-header">
+                        <h3>join human remove</h3>
+                        <span class="category-badge joinrole">Join Role</span>
+                    </div>
+                    <p class="command-description">Remove a role for human users</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!join human remove @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="joinrole" data-search="join bot add">
+                    <div class="command-header">
+                        <h3>join bot add</h3>
+                        <span class="category-badge joinrole">Join Role</span>
+                    </div>
+                    <p class="command-description">Add a role for bot users</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!join bot add @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="joinrole" data-search="join bot remove">
+                    <div class="command-header">
+                        <h3>join bot remove</h3>
+                        <span class="category-badge joinrole">Join Role</span>
+                    </div>
+                    <p class="command-description">Remove a role for bot users</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!join bot remove @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="joinrole" data-search="join config">
+                    <div class="command-header">
+                        <h3>join config</h3>
+                        <span class="category-badge joinrole">Join Role</span>
+                    </div>
+                    <p class="command-description">Show join role configuration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!join config</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Management Commands -->
+                <div class="command-card" data-category="management" data-search="add admin">
+                    <div class="command-header">
+                        <h3>add admin</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Add an admin role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!add admin @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="remove admin">
+                    <div class="command-header">
+                        <h3>remove admin</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Remove an admin role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!remove admin @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="add mod">
+                    <div class="command-header">
+                        <h3>add mod</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Add a moderator role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!add mod @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="remove mod">
+                    <div class="command-header">
+                        <h3>remove mod</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Remove a moderator role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!remove mod @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="add secondowner">
+                    <div class="command-header">
+                        <h3>add secondowner</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Add a second owner</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!add secondowner @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Guild Owner</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="remove secondowner">
+                    <div class="command-header">
+                        <h3>remove secondowner</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">Remove a second owner</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!remove secondowner @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Guild Owner</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="management" data-search="list staff">
+                    <div class="command-header">
+                        <h3>list staff</h3>
+                        <span class="category-badge management">Management</span>
+                    </div>
+                    <p class="command-description">List all staff roles</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!list staff</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Moderation Commands -->
+                <div class="command-card" data-category="moderation" data-search="ban">
+                    <div class="command-header">
+                        <h3>ban</h3>
+                        <span class="category-badge moderation">Moderation</span>
+                    </div>
+                    <p class="command-description">Ban a user from the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ban @user [reason]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Ban Members</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="moderation" data-search="kick">
+                    <div class="command-header">
+                        <h3>kick</h3>
+                        <span class="category-badge moderation">Moderation</span>
+                    </div>
+                    <p class="command-description">Kick a user from the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!kick @user [reason]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Kick Members</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="moderation" data-search="strip">
+                    <div class="command-header">
+                        <h3>strip</h3>
+                        <span class="category-badge moderation">Moderation</span>
+                    </div>
+                    <p class="command-description">Remove all roles from a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!strip @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="moderation" data-search="nickname">
+                    <div class="command-header">
+                        <h3>nickname</h3>
+                        <span class="category-badge moderation">Moderation</span>
+                    </div>
+                    <p class="command-description">Change a user's nickname</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nickname @user <nickname></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Nicknames</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="moderation" data-search="purge">
+                    <div class="command-header">
+                        <h3>purge</h3>
+                        <span class="category-badge moderation">Moderation</span>
+                    </div>
+                    <p class="command-description">Delete multiple messages</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!purge <amount> [@user]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Messages</span>
+                    </div>
+                </div>
+
+                <!-- NSFW Commands -->
+                <div class="command-card" data-category="fun" data-search="nsfw enable">
+                    <div class="command-header">
+                        <h3>nsfw enable</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Enable NSFW system for this server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nsfw enable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="nsfw send">
+                    <div class="command-header">
+                        <h3>nsfw send</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Send NSFW content (requires NSFW channel)</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nsfw send</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">NSFW</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="nsfw add">
+                    <div class="command-header">
+                        <h3>nsfw add</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Add NSFW media to a category</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nsfw add <category> <url></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="nsfw bulk">
+                    <div class="command-header">
+                        <h3>nsfw bulk</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">Add multiple NSFW URLs to a category</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nsfw bulk <category> [urls]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="fun" data-search="nsfw list">
+                    <div class="command-header">
+                        <h3>nsfw list</h3>
+                        <span class="category-badge fun">Fun</span>
+                    </div>
+                    <p class="command-description">List NSFW media in a category</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!nsfw list <category></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Role Management Commands -->
+                <div class="command-card" data-category="rolemanagement" data-search="role add">
+                    <div class="command-header">
+                        <h3>role add</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">Add a role to a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role add @user @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="rolemanagement" data-search="role remove">
+                    <div class="command-header">
+                        <h3>role remove</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">Remove a role from a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role remove @user @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="rolemanagement" data-search="role create">
+                    <div class="command-header">
+                        <h3>role create</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">Create a new role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role create <name> [color]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="rolemanagement" data-search="role delete">
+                    <div class="command-header">
+                        <h3>role delete</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">Delete a role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role delete @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="rolemanagement" data-search="role info">
+                    <div class="command-header">
+                        <h3>role info</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">Show information about a role</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role info @role</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="rolemanagement" data-search="role list">
+                    <div class="command-header">
+                        <h3>role list</h3>
+                        <span class="category-badge rolemanagement">Role Management</span>
+                    </div>
+                    <p class="command-description">List all roles in the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!role list</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Server Info Commands -->
+                <div class="command-card" data-category="info" data-search="serverinfo si">
+                    <div class="command-header">
+                        <h3>serverinfo</h3>
+                        <span class="category-badge info">Info</span>
+                    </div>
+                    <p class="command-description">Show information about the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!serverinfo</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- Ticket Commands -->
+                <div class="command-card" data-category="ticket" data-search="ticket setup">
+                    <div class="command-header">
+                        <h3>ticket setup</h3>
+                        <span class="category-badge ticket">Ticket</span>
+                    </div>
+                    <p class="command-description">Set up the ticket system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ticket setup</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ticket" data-search="ticket close">
+                    <div class="command-header">
+                        <h3>ticket close</h3>
+                        <span class="category-badge ticket">Ticket</span>
+                    </div>
+                    <p class="command-description">Close a ticket</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ticket close</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ticket" data-search="ticket add">
+                    <div class="command-header">
+                        <h3>ticket add</h3>
+                        <span class="category-badge ticket">Ticket</span>
+                    </div>
+                    <p class="command-description">Add a user to a ticket</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ticket add @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ticket" data-search="ticket remove">
+                    <div class="command-header">
+                        <h3>ticket remove</h3>
+                        <span class="category-badge ticket">Ticket</span>
+                    </div>
+                    <p class="command-description">Remove a user from a ticket</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ticket remove @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="ticket" data-search="ticket transcript">
+                    <div class="command-header">
+                        <h3>ticket transcript</h3>
+                        <span class="category-badge ticket">Ticket</span>
+                    </div>
+                    <p class="command-description">Generate a transcript of the ticket</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!ticket transcript</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <!-- User Info Commands -->
+                <div class="command-card" data-category="info" data-search="userinfo ui">
+                    <div class="command-header">
+                        <h3>userinfo</h3>
+                        <span class="category-badge info">Info</span>
+                    </div>
+                    <p class="command-description">Show information about a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!userinfo [@user]</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">None</span>
+                    </div>
+                </div>
+
+                <!-- Vanity Commands -->
+                <div class="command-card" data-category="vanity" data-search="vanity set">
+                    <div class="command-header">
+                        <h3>vanity set</h3>
+                        <span class="category-badge vanity">Vanity</span>
+                    </div>
+                    <p class="command-description">Set a vanity URL for the server</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!vanity set <code></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="vanity" data-search="vanity remove">
+                    <div class="command-header">
+                        <h3>vanity remove</h3>
+                        <span class="category-badge vanity">Vanity</span>
+                    </div>
+                    <p class="command-description">Remove the vanity URL</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!vanity remove</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="vanity" data-search="vanity info">
+                    <div class="command-header">
+                        <h3>vanity info</h3>
+                        <span class="category-badge vanity">Vanity</span>
+                    </div>
+                    <p class="command-description">Show vanity URL information</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!vanity info</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+
+                <!-- Voice Master Commands -->
+                <div class="command-card" data-category="voicemaster" data-search="voice set">
+                    <div class="command-header">
+                        <h3>voice set</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Set up Voice Master system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice set</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="voicemaster" data-search="voice power">
+                    <div class="command-header">
+                        <h3>voice power</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Give voice power to a user</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice power @user</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="voicemaster" data-search="voice limit">
+                    <div class="command-header">
+                        <h3>voice limit</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Set user limit for voice channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice limit <amount></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="voicemaster" data-search="voice lock">
+                    <div class="command-header">
+                        <h3>voice lock</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Lock/unlock voice channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice lock</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="voicemaster" data-search="voice hide">
+                    <div class="command-header">
+                        <h3>voice hide</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Hide/show voice channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice hide</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="voicemaster" data-search="voice name">
+                    <div class="command-header">
+                        <h3>voice name</h3>
+                        <span class="category-badge voicemaster">Voice Master</span>
+                    </div>
+                    <p class="command-description">Rename voice channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!voice name <name></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Channels</span>
+                    </div>
+                </div>
+
+                <!-- Welcome Commands -->
+                <div class="command-card" data-category="welcome" data-search="welcome set">
+                    <div class="command-header">
+                        <h3>welcome set</h3>
+                        <span class="category-badge welcome">Welcome</span>
+                    </div>
+                    <p class="command-description">Set welcome message and channel</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!welcome set #channel <message></code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="welcome" data-search="welcome test">
+                    <div class="command-header">
+                        <h3>welcome test</h3>
+                        <span class="category-badge welcome">Welcome</span>
+                    </div>
+                    <p class="command-description">Test the welcome message</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!welcome test</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="welcome" data-search="welcome disable">
+                    <div class="command-header">
+                        <h3>welcome disable</h3>
+                        <span class="category-badge welcome">Welcome</span>
+                    </div>
+                    <p class="command-description">Disable welcome system</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!welcome disable</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Administrator</span>
+                    </div>
+                </div>
+
+                <div class="command-card" data-category="welcome" data-search="welcome config">
+                    <div class="command-header">
+                        <h3>welcome config</h3>
+                        <span class="category-badge welcome">Welcome</span>
+                    </div>
+                    <p class="command-description">Show welcome configuration</p>
+                    <div class="command-usage">
+                        <strong>Usage:</strong> <code>!welcome config</code>
+                    </div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home Button -->
+    <div class="back-to-home">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Auth - Wizard Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .spotify-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000000;
+        }
+
+        .spotify-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .spotify-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1db954;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .spotify-subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .spotify-auth-btn {
+            background: #1db954;
+            color: #ffffff;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 30px;
+        }
+
+        .spotify-auth-btn:hover {
+            background: #1ed760;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(29, 185, 84, 0.3);
+        }
+
+        .spotify-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .spotify-feature {
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid rgba(29, 185, 84, 0.2);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .spotify-feature i {
+            font-size: 2.5rem;
+            color: #1db954;
+            margin-bottom: 20px;
+        }
+
+        .spotify-feature h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .spotify-feature p {
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+        .auth-status {
+            margin-top: 20px;
+        }
+
+        .status-message {
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid rgba(29, 185, 84, 0.3);
+            border-radius: 8px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1db954;
+            font-weight: 600;
+        }
+
+        .status-message i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .spotify-title {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+            
+            .spotify-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Logo" class="nav-logo">
+                <span class="nav-title">Wizard</span>
+            </div>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="#" class="dropdown-trigger" onclick="toggleNavDropdown()">
+                        Commands <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" id="navDropdown">
+                        <a href="jail-commands.html">
+                            <i class="fas fa-lock"></i> Jail System
+                        </a>
+                        <a href="antinuke-commands.html">
+                            <i class="fas fa-shield-alt"></i> AntiNuke
+                        </a>
+                        <a href="automod-commands.html">
+                            <i class="fas fa-robot"></i> AutoMod
+                        </a>
+                        <a href="voicemaster-commands.html">
+                            <i class="fas fa-microphone"></i> Voice Master
+                        </a>
+                        <a href="vanity-commands.html">
+                            <i class="fas fa-crown"></i> Vanity & Booster
+                        </a>
+                        <a href="joinrole-commands.html">
+                            <i class="fas fa-user-plus"></i> Join Role
+                        </a>
+                        <a href="giveaway-commands.html">
+                            <i class="fas fa-gift"></i> Giveaway
+                        </a>
+                        <a href="ticket-commands.html">
+                            <i class="fas fa-ticket-alt"></i> Ticket System
+                        </a>
+                        <a href="moderation-commands.html">
+                            <i class="fas fa-gavel"></i> Moderation
+                        </a>
+                        <a href="rolemanagement-commands.html">
+                            <i class="fas fa-users"></i> Role Management
+                        </a>
+                        <a href="embed-commands.html">
+                            <i class="fas fa-link"></i> Embed System
+                        </a>
+                        <a href="welcome-commands.html">
+                            <i class="fas fa-user-plus"></i> Welcome System
+                        </a>
+                    </div>
+                </div>
+                <a href="spotify.html">Spotify</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="status.html">Status</a>
+            </div>
+            <div class="nav-auth">
+                <button class="login-btn" id="loginBtn" onclick="redirectToBotAuth()">
+                    <i class="fab fa-discord"></i>
+                    Login with Discord
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spotify Auth Hero Section -->
+    <section class="spotify-hero">
+        <div class="spotify-content">
+            <h1 class="spotify-title">Spotify Integration</h1>
+            <p class="spotify-subtitle">
+                Connect your Spotify account to unlock premium music features and enhance your Discord experience with Wizard Bot.
+            </p>
+            
+            <a href="#" class="spotify-auth-btn" onclick="redirectToSpotifyAuth()">
+                <i class="fab fa-spotify"></i>
+                Connect with Spotify
+            </a>
+            
+            <div class="auth-status" id="authStatus" style="display: none;">
+                <div class="status-message">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Spotify Connected Successfully!</span>
+                </div>
+            </div>
+
+            <div class="spotify-features">
+                <div class="spotify-feature">
+                    <i class="fas fa-music"></i>
+                    <h3>Music Commands</h3>
+                    <p>Access premium music commands and features with your Spotify account</p>
+                </div>
+                <div class="spotify-feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Listening Stats</h3>
+                    <p>Track your music listening habits and share your top tracks</p>
+                </div>
+                <div class="spotify-feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Social Features</h3>
+                    <p>Share your music taste with friends and discover new songs together</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="spotify-auth.js"></script>
+    <script>
+        function redirectToSpotifyAuth() {
+            window.spotifyAuthUI.initiateAuth();
+        }
+
+        // Check if user is returning from successful authentication
+        document.addEventListener('DOMContentLoaded', async function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const authSuccess = urlParams.get('auth_success');
+            
+            if (authSuccess === 'true') {
+                showAuthSuccess();
+            } else {
+                // Check current auth status
+                try {
+                    const authStatus = await window.spotifyAuth.checkAuthStatus();
+                    if (authStatus.authenticated) {
+                        showAuthSuccess();
+                    }
+                } catch (error) {
+                    console.log('Auth status check failed:', error);
+                }
+            }
+        });
+
+        function showAuthSuccess() {
+            const authStatus = document.getElementById('authStatus');
+            if (authStatus) {
+                authStatus.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+

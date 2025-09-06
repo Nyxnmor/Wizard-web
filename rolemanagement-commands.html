@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management Commands - Wizard Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .commands-web {
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .commands-header {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            padding: 80px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .commands-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .commands-subtitle {
+            font-size: 1.2rem;
+            color: #a1a1aa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .commands-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .command-category {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background: #000000;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background: #60a5fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .category-description {
+            color: #a1a1aa;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+        
+        .commands-list {
+            padding: 30px;
+        }
+        
+        .command-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .command-item:hover {
+            background: rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .command-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        
+        .command-description {
+            color: #a1a1aa;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .command-usage {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .command-permissions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .permission-badge {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background: rgba(96, 165, 250, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+        
+        .stats-bar {
+            background: rgba(26, 26, 26, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .stats-text {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+        
+        .stats-text strong {
+            color: #ffffff;
+        }
+        
+        @media (max-width: 768px) {
+            .commands-title {
+                font-size: 2.5rem;
+            }
+            
+            .commands-container {
+                padding: 20px 10px;
+            }
+            
+            .category-header {
+                padding: 15px 20px;
+            }
+            
+            .commands-list {
+                padding: 20px;
+            }
+            
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body class="commands-web">
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Header -->
+    <header class="commands-header">
+        <div class="container">
+            <h1 class="commands-title">Role Management Commands</h1>
+            <p class="commands-subtitle">Advanced role management and button role systems</p>
+        </div>
+    </header>
+
+    <!-- Commands Container -->
+    <div class="commands-container">
+        <!-- Role Management Commands -->
+        <div class="command-category" id="rolemanagement">
+            <div class="category-header">
+                <div class="category-title">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    Role Management
+                </div>
+                <div class="category-description">Advanced role management and button role systems</div>
+            </div>
+            <div class="commands-list">
+                <div class="command-item">
+                    <div class="command-name">role add @user @role</div>
+                    <div class="command-description">Add role to user</div>
+                    <div class="command-usage">!role add @user @Member</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role remove @user @role</div>
+                    <div class="command-description">Remove role from user</div>
+                    <div class="command-usage">!role remove @user @Member</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role create [name] [color] [hoist] [mentionable]</div>
+                    <div class="command-description">Create a new role</div>
+                    <div class="command-usage">!role create Moderator #ff0000 true false</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role delete @role</div>
+                    <div class="command-description">Delete a role</div>
+                    <div class="command-usage">!role delete @OldRole</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role edit @role [name] [color] [hoist] [mentionable]</div>
+                    <div class="command-description">Edit role properties</div>
+                    <div class="command-usage">!role edit @Role NewName #00ff00 true true</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role info @role</div>
+                    <div class="command-description">Show role information</div>
+                    <div class="command-usage">!role info @Role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role members @role</div>
+                    <div class="command-description">Show members with role</div>
+                    <div class="command-usage">!role members @Role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role all @user</div>
+                    <div class="command-description">Show all roles for user</div>
+                    <div class="command-usage">!role all @user</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">buttonrole create [message_id] [role] [label] [color] [emoji]</div>
+                    <div class="command-description">Create button role</div>
+                    <div class="command-usage">!buttonrole create 123456789 @Role Get Role primary 🎉</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">buttonrole delete [message_id] [role]</div>
+                    <div class="command-description">Delete button role</div>
+                    <div class="command-usage">!buttonrole delete 123456789 @Role</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">buttonrole list</div>
+                    <div class="command-description">List all button roles</div>
+                    <div class="command-usage">!buttonrole list</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Any</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">buttonrole panel [channel] [title] [description]</div>
+                    <div class="command-description">Create button role panel</div>
+                    <div class="command-usage">!buttonrole panel #roles Role Selection Choose your roles</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role massadd @role [users]</div>
+                    <div class="command-description">Add role to multiple users</div>
+                    <div class="command-usage">!role massadd @Role @user1 @user2 @user3</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role massremove @role [users]</div>
+                    <div class="command-description">Remove role from multiple users</div>
+                    <div class="command-usage">!role massremove @Role @user1 @user2 @user3</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role permissions @role [add/remove] [permission]</div>
+                    <div class="command-description">Manage role permissions</div>
+                    <div class="command-usage">!role permissions @Role add ManageMessages</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role position @role [position]</div>
+                    <div class="command-description">Change role position</div>
+                    <div class="command-usage">!role position @Role 5</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+                
+                <div class="command-item">
+                    <div class="command-name">role icon @role [emoji/url]</div>
+                    <div class="command-description">Set role icon</div>
+                    <div class="command-usage">!role icon @Role 🎉</div>
+                    <div class="command-permissions">
+                        <span class="permission-badge">Manage Roles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <p class="stats-text">
+                <strong>Role Management</strong> - <strong>16 commands</strong> for advanced role management
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
